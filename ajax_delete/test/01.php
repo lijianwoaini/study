@@ -1,14 +1,11 @@
 <?php
 require_once 'DAOPDO.class.php';
 $configs=array(
-    'dbname'=>'project'
+    'dbname'=>'test'
 );
 $dao=DAOPDO::getSingleton($configs);
-$sql="select * from blog";
+$sql="select * from users";
 $arr=$dao->fetchAll($sql);
-//echo '<pre>';
-//print_r($arr);
-//echo '</pre>';
 ?>
 <!doctype html>
 <html lang="en">
@@ -19,17 +16,19 @@ $arr=$dao->fetchAll($sql);
 <body>
 <table>
     <tr>
-        <th>标题</th>
-        <th>创建时间</th>
-        <th>推荐数</th>
+        <td><a href="insert.html">添加</a></td>
+    </tr>
+    <tr>
+        <th>账号</th>
+        <th>密码</th>
+        <th>rname</th>
         <th>操作</th>
     </tr>
     <?php foreach($arr as $key=>$value){ ?>
     <tr>
-        <td><?php echo $value['title'] ?></td>
-        <td><?php echo $value['create_time'] ?></td>
-        <td><?php echo $value['recommend'] ?></td>
-
+        <td><?php echo $value['name'] ?></td>
+        <td><?php echo $value['pass'] ?></td>
+        <td><?php echo $value['rname'] ?></td>
         <td><a id="<?php echo $value['id'] ?>" href="javascript:void(0)" class="btn">删除</a></td>
     </tr>
     <?php } ?>
@@ -53,14 +52,7 @@ $arr=$dao->fetchAll($sql);
 
             }
         })
-
-
-
     })
-
-
-
-
 </script>
 </body>
 </html>

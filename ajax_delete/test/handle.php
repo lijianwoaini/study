@@ -2,10 +2,10 @@
 $id=$_POST['id'];//接收前台传递的id值
 require_once 'DAOPDO.class.php';
 $configs=array(
-    'dbname'=>'project'
+    'dbname'=>'test'
 );
 $dao=DAOPDO::getSingleton($configs);
-$sql="delete from blog where id=$id";
+$sql="delete from users where id=$id";
 $res=$dao->query($sql);//执行的结果是布尔值 true/false
 if($res){
     //自己拼接返回结果数组
